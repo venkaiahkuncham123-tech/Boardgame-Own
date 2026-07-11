@@ -5,7 +5,7 @@ pipeline {
         maven 'venkaiah-maven'
     }
     environment {
-      SONAR-HOME = tool 'venkaiah-sonar-scanner'
+      SONAR_HOME = tool 'venkaiah-sonar-scanner'
     }
     stages {
         stage('Git Checkout') {
@@ -22,7 +22,7 @@ pipeline {
         stage('Sonar Qube Analysis') {
             steps {
                 withSonarQubeEnv('venkaiah-sonar') {
-                    sh '''$SONAR-HOME/bin/sonar-scanner \
+                    sh '''$SONAR_HOME/bin/sonar-scanner \
                     -Dsonar.settings=sonar-project.properties'''
                  }
             }
