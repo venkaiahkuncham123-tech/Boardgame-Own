@@ -22,9 +22,9 @@ pipeline {
         stage('Sonar Qube Analysis') {
             steps {
                 withSonarQubeEnv('sonar-url') {
-                    sh '''$SONAR_HOME/bin/sonar-scanner -Dsonar.projectName=Boardgame \
+                    sh '''${SONAR_HOME}/bin/sonar-scanner -Dsonar.projectName=Boardgame \
                     -Dsonar.projectKey=Boardgame \
-                    -Dsonar.java.binaries=.
+                    -Dsonar.java.binaries=target
                     '''
                  }
             }
