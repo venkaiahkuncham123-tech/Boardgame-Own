@@ -21,9 +21,8 @@ pipeline {
         }
         stage('Sonar Qube Analysis') {
             steps {
-                withSonarQubeEnv('venkaiah-sonar') {
-                    sh '''$SONAR_HOME/bin/sonar-scanner \
-                    -Dsonar.projectName=Boardgame \
+                withSonarQubeEnv('sonar-url') {
+                    sh '''$SONAR_HOME/bin/sonar-scanner -Dsonar.projectName=Boardgame \
                     -Dsonar.projectKey=Boardgame \
                     -Dsonar.java.binaries=.
                     '''
