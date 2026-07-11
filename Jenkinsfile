@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        openjdk 'venkaiah-jdk'
+        jdk 'venkaiah-jdk'
         maven 'venkaiah-maven'
     }
     environment {
@@ -38,8 +38,9 @@ pipeline {
                        sh 'mvn deploy'
                 }               
             }
-        }
-        post {
+        }        
+    }
+    post {
             success {
                 sh 'echo Application Deployed to Nexus'
             }
@@ -47,5 +48,4 @@ pipeline {
                 sh 'echo Error'
             }
         }
-    }
 }
