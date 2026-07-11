@@ -23,7 +23,7 @@ pipeline {
             steps {
                 withSonarQubeEnv('venkaiah-sonar') {
                     sh '''$SONAR_HOME/bin/sonar-scanner \
-                    -Dproject.settings=sonar-project.properties'''
+                    -Dproject.settings=./sonar-project.properties'''
                  }
             }
         }
