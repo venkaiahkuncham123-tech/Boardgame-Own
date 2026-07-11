@@ -23,7 +23,10 @@ pipeline {
             steps {
                 withSonarQubeEnv('venkaiah-sonar') {
                     sh '''$SONAR_HOME/bin/sonar-scanner \
-                    -Dproject.settings=./sonar-project.properties'''
+                    -Dsonar.projectName=Boardgame \
+                    -Dsonar.projectkey=Boardgame
+                    -Dsonar.java.binaries=.
+                    '''
                  }
             }
         }
